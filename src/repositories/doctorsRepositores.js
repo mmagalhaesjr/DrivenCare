@@ -1,5 +1,6 @@
 import connectionDb from "../config/database.js";
 
+
 async function researchDoctor(searchTerm){
     
     return await connectionDb.query(`
@@ -20,6 +21,21 @@ async function researchDoctor(searchTerm){
     `)
 }
 
+async function findDoctorById(id){
+    return await connectionDb.query(`
+        SELECT * FROM doctors WHERE id = $1
+    `,[id])
+}
+
+
+async function getDoctorSchedule(id){
+    return await connectionDb.query(`
+        SELECT * FROM schedule WHERE doctor_id = $1
+    `,[id])
+}
+
 export default{
-    researchDoctor
+    researchDoctor,
+    getDoctorSchedule,
+    findDoctorById
 }
