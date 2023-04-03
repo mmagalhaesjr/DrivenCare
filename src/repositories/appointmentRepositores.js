@@ -17,8 +17,22 @@ async function findScheduleById(id){
     
 }
 
+async function getAppointments(type, id){
+return await connectionDb.query(`
+SELECT appointments.id, appointments.patient_id, appointments.confirmed, schedule.doctor_id, schedule.date, doctors.id as doctor_id, doctors.name, speciality.name as speciality
+FROM appointments
+JOIN schedule
+ON schedule_id = schedule.id
+JOIN doctors
+ON doctor_id = doctors.id
+JOIN speciality 
+ON speciality_id = speciality.id
+WHERE ${type}_id = $1
+`, [id])
+}
 
 export default{
     createAppointment,
-    findScheduleById
+    findScheduleById,
+    getAppointments
 }

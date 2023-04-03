@@ -7,6 +7,7 @@ const appointmentsRoutes = Router();
 
 
 appointmentsRoutes.post('/appointment/:id',validateToken,appointmentController.createAppointment)
+appointmentsRoutes.get('/appointments', validateToken, appointmentController.getAppointments)
 
 
 

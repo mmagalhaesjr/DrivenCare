@@ -9,7 +9,14 @@ async function createAppointment(schedule_id,patient_id){
     await appointmentRepositores.createAppointment(patient_id, schedule_id)
 }
 
+async function getAppointments(type, id){
 
+const {rows} =  await appointmentRepositores.getAppointments(type, id)
+
+return rows
+
+
+}
 
 
 
@@ -17,5 +24,6 @@ async function createAppointment(schedule_id,patient_id){
 
 
 export default{
-    createAppointment
+    createAppointment,
+    getAppointments
 }

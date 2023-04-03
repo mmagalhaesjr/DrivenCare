@@ -14,9 +14,12 @@ export async function validateToken(req, res, next) {
 
         if(session.type === "patient"){
             res.locals.userId = session.patient_id
+        
         } else{
             res.locals.userId = session.doctor_id
         }
+
+        res.locals.type = session.type
         
        next()
     } catch (error) {

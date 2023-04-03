@@ -14,6 +14,25 @@ async function createAppointment(req,res){
 
 
 }
+
+
+async function getAppointments(req,res){
+    const type = res.locals.type
+    const id =  res.locals.userId 
+   
+    try {
+        const appointments = await appointmentServices.getAppointments(type, id)
+        res.send(appointments)
+
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+
+
+}
+
+
 export default{
-    createAppointment
+    createAppointment,
+    getAppointments
 }
