@@ -11,6 +11,4 @@ appointmentsRoutes.get('/appointments', validateToken, appointmentController.get
 
 
 
-
-
 export default appointmentsRoutes
