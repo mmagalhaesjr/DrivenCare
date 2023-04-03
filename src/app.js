@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRoutes from './routes/auth.routes.js';
 import doctorsRoutes from "./routes/doctors.routes.js";
 import patientRoutes from "./routes/patient.routes.js";
+import appointmentsRoutes from './routes/ appointments.routes.js';
 
 dotenv.config()
 
@@ -11,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-app.use([authRoutes, doctorsRoutes])
+app.use([authRoutes, doctorsRoutes,appointmentsRoutes])
 
 
 

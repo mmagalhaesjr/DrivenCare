@@ -8,8 +8,6 @@ async function searchDoctor(searchTerm) {
 }
 
 async function getDoctorSchedule(id) {
-
-
         const {rowCount} = await doctorsRepositores.findDoctorById(id);
         if(!rowCount)  throw new Error("No result for this search");
 

@@ -12,4 +12,5 @@ doctorsRoutes.get('/doctor/:id/schedule',validateToken, doctorsController.getDoc
 
 
 
+
 export default doctorsRoutes
